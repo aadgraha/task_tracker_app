@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:task_tracker_app/src/app/bloc/task_fetch/task_fetch_bloc.dart';
 import 'package:task_tracker_app/src/app/view/page/task_create_page.dart';
+import 'package:task_tracker_app/src/app/view/page/task_detail_page.dart';
 import 'package:task_tracker_app/src/app/view/widget/custom_app_bar.dart';
 import 'package:task_tracker_app/src/app/view/widget/empty_data.dart';
 import 'package:task_tracker_app/src/app/view/widget/task_card.dart';
@@ -53,7 +54,20 @@ class TaskListPage extends StatelessWidget {
                             ),
                             child: ListView(
                               children: [
-                                ...tasks.map((task) => TaskCard(task: task)),
+                                ...tasks.map(
+                                  (task) => TaskCard(
+                                    task: task,
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (_) =>
+                                              TaskDetailPage(task: task),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ),
                               ],
                             ),
                           ),
