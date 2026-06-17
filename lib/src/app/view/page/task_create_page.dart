@@ -52,13 +52,19 @@ class _TaskCreatePageState extends State<TaskCreatePage> {
         state.maybeWhen(
           success: () {
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Task created successfully')),
+              const SnackBar(
+                content: Text('Task created successfully'),
+                duration: Duration(seconds: 1),
+              ),
             );
             Navigator.pop(context, true);
           },
           failure: (message) {
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(message ?? 'Something went wrong')),
+              SnackBar(
+                content: Text(message ?? 'Something went wrong'),
+                duration: Duration(seconds: 1),
+              ),
             );
           },
           orElse: () {},

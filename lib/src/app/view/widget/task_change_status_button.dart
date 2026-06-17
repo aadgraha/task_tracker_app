@@ -23,13 +23,19 @@ class TaskChangeStatusButton extends StatelessWidget {
         state.maybeWhen(
           success: () {
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Task status changed successfully')),
+              const SnackBar(
+                content: Text('Task status changed successfully'),
+                duration: Duration(seconds: 1),
+              ),
             );
             onSuccess?.call();
           },
           failure: (message) {
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(message ?? 'Something went wrong')),
+              SnackBar(
+                content: Text(message ?? 'Something went wrong'),
+                duration: Duration(seconds: 1),
+              ),
             );
           },
           orElse: () {},
