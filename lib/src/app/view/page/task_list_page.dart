@@ -76,9 +76,11 @@ class TaskListPage extends StatelessWidget {
                         return EmptyData();
                       }
                     },
-                    loading: () => CircularProgressIndicator(),
-                    failure: (message) =>
-                        Center(child: Text(message ?? 'Something went wrong')),
+                    loading: () => Center(child: CircularProgressIndicator()),
+                    failure: (message) => Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(message ?? 'Something went wrong'),
+                      ),
                   );
                 },
               ),
