@@ -7,8 +7,7 @@ A simple Task Tracker application built with Flutter and Go.
 ### Running the backend
 Before starting the Flutter application, run the backend server:
 
-go build backend.go
-./backend
+go build backend.go && ./backend
 
 ### Configure API Endpoint
 
