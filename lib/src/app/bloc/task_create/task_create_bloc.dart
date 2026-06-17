@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:task_tracker_app/src/app/model/task.dart';
-import 'package:task_tracker_app/src/app/resource/task_api_provider.dart';
+import 'package:task_tracker_app/src/app/repository/task_repository.dart';
 
 part 'task_create_bloc.freezed.dart';
 
@@ -25,7 +25,7 @@ class TaskCreateBloc extends Bloc<TaskCreateEvent, TaskCreateState> {
         create: (task) async {
           emit(const _Loading());
           try {
-            await TaskApiProvider.instance.createTask(task: task);
+            await TaskRepository.instance.createTask(task: task);
             emit(const _Success());
           } catch (error) {
             emit(_Failure(message: error.toString()));

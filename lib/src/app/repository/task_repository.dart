@@ -2,14 +2,14 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:task_tracker_app/src/app/model/task.dart';
-import 'package:task_tracker_app/src/app/resource/base_api.dart';
+import 'package:task_tracker_app/src/app/repository/base_api.dart';
 
-class TaskApiProvider {
-  TaskApiProvider({required this.dio});
+class TaskRepository {
+  TaskRepository({required this.dio});
 
   final Dio dio;
 
-  static TaskApiProvider instance = TaskApiProvider(dio: Api.dio);
+  static TaskRepository instance = TaskRepository(dio: Api.dio);
 
   Future<List<Task>> listTask() async {
     final response = await dio.get('/tasks');

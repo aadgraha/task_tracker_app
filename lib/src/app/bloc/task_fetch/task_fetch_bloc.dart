@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:task_tracker_app/src/app/model/task.dart';
-import 'package:task_tracker_app/src/app/resource/task_api_provider.dart';
+import 'package:task_tracker_app/src/app/repository/task_repository.dart';
 
 part 'task_fetch_bloc.freezed.dart';
 
@@ -42,7 +42,7 @@ class TaskFetchBloc extends HydratedBloc<TaskFetchEvent, TaskFetchState> {
     }
 
     try {
-      final tasks = await TaskApiProvider.instance.listTask();
+      final tasks = await TaskRepository.instance.listTask();
 
       emit(TaskFetchState.success(tasks: tasks));
     } catch (error) {

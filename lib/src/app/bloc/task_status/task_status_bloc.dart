@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:task_tracker_app/src/app/resource/task_api_provider.dart';
+import 'package:task_tracker_app/src/app/repository/task_repository.dart';
 
 part 'task_status_bloc.freezed.dart';
 
@@ -27,7 +27,7 @@ class TaskStatusBloc extends Bloc<TaskStatusEvent, TaskStatusState> {
         status: (id, status) async {
           emit(const _Loading());
           try {
-            await TaskApiProvider.instance.changeStatus(id: id, status: status);
+            await TaskRepository.instance.changeStatus(id: id, status: status);
             emit(const _Success());
           } catch (error) {
             emit(_Failure(message: error.toString()));
