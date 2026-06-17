@@ -102,3 +102,6 @@ Menggunakan model layer daripada raw map/json dari response. alasanya :
 - Strong typing, meminimalisir bug dynamic.
 - lebih mudah mengkonversi json, bisa dimanipulasi langsung ke enum (task status).
 - data struktur yang lebih tersentral.
+## Aplication Demo
+[Video Demo Aplikasi](https://youtube.com/shorts/c9ezJgEr-Vs?feature=share)
+
